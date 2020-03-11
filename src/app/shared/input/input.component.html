@@ -1,1 +1,24 @@
-<p>input works!</p>
+<div class="field">
+  <label>{{ label }}</label>
+  <input [type]="inputType" [formControl]="control" />
+  <div *ngIf="showErrors()" class="ui pointing red basic label">
+    <p *ngIf="control.errors.required">
+      Value is required.
+    </p>
+    <p *ngIf="control.errors.minlength">
+      Username is too short.
+    </p>
+    <p *ngIf="control.errors.maxlength">
+      Username is too long.
+    </p>
+    <p *ngIf="control.errors.pattern">
+      Invalid characters used.
+    </p>
+    <p *ngIf="control.errors.nonUniqueUsername">
+      Username is taken.
+    </p>
+    <p *ngIf="control.errors.noConnection">
+      No idea what happened.
+    </p>
+  </div>
+</div>
